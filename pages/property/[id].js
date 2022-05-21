@@ -11,13 +11,32 @@ import { Icon } from '@iconify/react';
 import timesCircleLine from '@iconify/icons-clarity/times-circle-line';
 import { useState } from 'react'
 import Swal from 'sweetalert2'
+import { useAuth } from '../../hooks/auth';
+import {
+    FacebookShareButton,
+    FacebookIcon,
+    PinterestShareButton,
+    PinterestIcon,
+    RedditShareButton,
+    RedditIcon,
+    WhatsappShareButton,
+    WhatsappIcon,
+    LinkedinShareButton,
+    LinkedinIcon,
+  } from 'next-share';
 
 
 const SingleProperty = ({property}) => {
 
     const orig = 'http://localhost:8000/storage'
-
     const favorite = false;
+    const { user,logout } = useAuth();
+
+    const [data, setData] = useState({
+        property_id: property.id,
+        // author_id: user.id,
+    });
+
 
     const bookProperty = async (id) => {
         const isConfirm = await Swal.fire({
@@ -36,13 +55,15 @@ const SingleProperty = ({property}) => {
             return;
         }
 
-        await axios.post(`/api/v1/bookings`, data).then(({data})=>{
+        await axios.post(`/api/v1/bookings`, data)
+        .then(({data})=>{
             Swal.fire({
                 icon:"success",
                 text:data.message
             })
             navigate("/")
-            }).catch(({response})=>{
+            })
+        .catch(({response})=>{
             if(response.status===422){
                 setValidationError(response.data.errors)
             }else{
@@ -56,19 +77,18 @@ const SingleProperty = ({property}) => {
         
     }
 
-    const propertyFavorite = async() => {
+    const propertyFavorite = async(id) => {
         const isConfirm = await Swal.fire({
-            title: 'Are you sure?',
-            text: "Do you want to book this property?",
-            icon: 'warning',
+            title: 'Hello dear user?',
+            text: "Do you want to add this property to your favourite?",
+            icon: 'info',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            cancelButtonColor: '#F9A01B',
             confirmButtonText: 'Yes, i want to!'
           }).then((result) => {
             return result.isConfirmed
         });
-        // alert(property.id)
     }
 
     return (
@@ -112,23 +132,38 @@ const SingleProperty = ({property}) => {
                                     </svg>
                                     <span className="text-gray-600 ml-3">4 Reviews</span>
                                 </span>
-                                <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
-                                    <a className="text-gray-500">
-                                    <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                                    </svg>
-                                    </a>
-                                    <a className="ml-2 text-gray-500">
-                                    <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                                    </svg>
-                                    </a>
-                                    <a className="ml-2 text-gray-500">
-                                    <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                                    </svg>
-                                    </a>
-                                </span>
+                                    <div className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
+                                        <FacebookShareButton
+                                            url={'http://localhost:3000'} 
+                                            title={'next-share is a social share buttons for your next React apps.'}
+                                            >
+                                            <FacebookIcon size={32} round />
+                                        </FacebookShareButton>
+                                        <PinterestShareButton
+                                            url={'http://localhost:3000'} 
+                                            title={'next-share is a social share buttons for your next React apps.'}
+                                            >
+                                            <PinterestIcon size={32} round />
+                                        </PinterestShareButton>
+                                        <RedditShareButton
+                                            url={'http://localhost:3000'} 
+                                            title={'next-share is a social share buttons for your next React apps.'}
+                                            >
+                                            <RedditIcon size={32} round />
+                                        </RedditShareButton>
+                                        <WhatsappShareButton
+                                            url={'http://localhost:3000'} 
+                                            title={'next-share is a social share buttons for your next React apps.'}
+                                            >
+                                            <WhatsappIcon size={32} round />
+                                        </WhatsappShareButton>
+                                        <LinkedinShareButton
+                                            url={'http://localhost:3000'} 
+                                            title={'next-share is a social share buttons for your next React apps.'}
+                                            >
+                                            <LinkedinIcon size={32} round />
+                                        </LinkedinShareButton>
+                                    </div>
                                 </div>
                                 <p className="leading-relaxed">{property.attribute.description}</p>
                                 
