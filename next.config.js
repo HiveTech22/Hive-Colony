@@ -9,7 +9,7 @@ module.exports = withPWA({
         disable: process.env.NODE_ENV === 'development'
       },
     images: {
-        domains: ['localhost','picsum.photos', 'demo.themesberg.com'],
+        domains: ['localhost','picsum.photos', 'demo.themesberg.com', 'i.ibb.co'],
     },
     env: {
         MAPBOXGL_KEY:

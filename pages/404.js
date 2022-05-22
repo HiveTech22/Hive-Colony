@@ -1,25 +1,35 @@
 import { HomeIcon } from "@heroicons/react/solid"
 import Link from "next/link"
 import Button from "../components/Form/Button"
+import Image from "next/image";
 
 const NotFoundPage = () => (
-    <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-        <div className="max-w-xl mx-auto sm:px-6 lg:px-8">
-            <div className="flex items-center pt-8 sm:justify-start sm:pt-0">
-                <div className="px-4 text-lg text-primary border-r border-primary tracking-wider">
-                    404
+    <>
+        <div className="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
+                <div className="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
+                    <div className="relative">
+                        <div className="absolute">
+                            <div className="">
+                                <h1 className="my-2 text-gray-800 font-bold text-2xl">
+                                    Looks like you've found the
+                                    doorway to the great nothing
+                                </h1>
+                                <p className="my-2 text-gray-800">Sorry about that! Please visit our hompage to get where you need to go.</p>
+                                <Link href="/" passHref>
+                                    <button className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-primary text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50">Take me there!</button>
+                                </Link>
+                            </div>
+                        </div>
+                        <div>
+                            <Image src="https://i.ibb.co/G9DC8S0/404-2.png" alt="image"  layout="fill" objectFit="cover" objectPosition="center"/>
+                        </div>
+                    </div>
                 </div>
-
-                <div className="ml-4 text-lg text-primary uppercase tracking-wider">
-                    Not Found 
+                <div>
+                    <Image src="https://i.ibb.co/ck1SGFJ/Group.png" alt="image" width={350} height={250}/>
                 </div>
-            </div>
-
-            <Link href="/" passHref>
-                <Button className="flex items-center justify-center p-2 mt-2"><HomeIcon className="w-6 h-6 mr-2"/> Go Back Home</Button>
-            </Link>
         </div>
-    </div>
+    </>
 )
 
 export default NotFoundPage
