@@ -41,34 +41,6 @@ const Footer = () => {
             <footer className="text-center bg-primary text-white">
                 <div className="container pt-6">
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 m-auto justify-center items-center">
-                        {/* <div className="mb-6">
-                            <h5 className="uppercase font-bold mb-2.5">
-                                Links
-                            </h5>
-
-                            <ul className="list-none mb-0">
-                                <li>
-                                    <a href="#!" className="text-white">
-                                        Link 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#!" className="text-white">
-                                        Link 2
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#!" className="text-white">
-                                        Link 3
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#!" className="text-white">
-                                        Link 4
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> */}
 
                         <div className="mb-6">
                             <h5 className="uppercase font-bold mb-2.5">
