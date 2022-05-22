@@ -50,7 +50,7 @@ const Navigation = ({ user }) => {
                     <div className="flex">
                         {/* Logo */}
                         <div className="flex-shrink-0 flex items-center">
-                            <Link href="/dashboard">
+                            <Link href="/">
                                 <a>
                                     <ApplicationLogo className="block h-10 w-auto fill-current text-primary" />
                                 </a>
