@@ -97,7 +97,7 @@ export default function Home() {
             <GuestLayout>
                 <main className="max-w-6xl mx-auto sm:px-6 lg:px-8 bg-white">
                     <div className="flex flex-col justify-center items-center flex-wrap">
-                        <div className="mb-8 text-center">
+                        <div className="mb-8 text-center p-2">
                             <h6 className="text-xl font-semibold">Certified Agencts</h6>
                             <p className="mt-2 mb-4 text-blueGray-500">
                                 Divide details about your product or agency work into parts.
