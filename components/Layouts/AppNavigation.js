@@ -7,7 +7,7 @@ import { GlobeAltIcon, HomeIcon, ViewListIcon } from "@heroicons/react/solid";
 
 const AppNavigation = ({user}) => {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const sideBarHandler = () => {
         setOpen(open = !open)

@@ -102,7 +102,7 @@ const Navigation = ({ user }) => {
                     {/* Settings Dropdown */}
                     <div className="hidden sm:flex sm:items-center sm:ml-6">
                         {user ? 
-                            <div className="flex justify-center items-center gap-6">
+                            <div className="flex justify-center items-center gap-6 z-40">
                                 <Dropdown
                                     align="right"
                                     width="48"
