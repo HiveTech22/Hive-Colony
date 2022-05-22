@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // components
 
-import TableDropdown from 'components/Dropdowns/TableDropdown.js';
+// import TableDropdown from '../../components/Dropdown/TableDropdown.js';
 import Image from 'next/image';
 
 export default function CardTable({ color }) {
@@ -98,7 +98,7 @@ export default function CardTable({ color }) {
               <tr>
                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                   <Image
-                    src={require('assets/Image/bootstrap.jpg').default}
+                    src="/vercel.svg" width={40} height={40}
                     className="h-12 w-12 bg-white rounded-full border"
                     alt="..."
                   />
@@ -120,22 +120,22 @@ export default function CardTable({ color }) {
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                   <div className="flex">
                     <Image
-                      src={require('assets/Image/team-1-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                     />
                     <Image
-                      src={require('assets/Image/team-2-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-3-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-4-470x470.png').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
@@ -155,13 +155,13 @@ export default function CardTable({ color }) {
                   </div>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <TableDropdown />
+                  {/* <TableDropdown /> */}
                 </td>
               </tr>
               <tr>
                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                   <Image
-                    src={require('assets/Image/angular.jpg').default}
+                    src="/vercel.svg" width={40} height={40}
                     className="h-12 w-12 bg-white rounded-full border"
                     alt="..."
                   />
@@ -184,22 +184,22 @@ export default function CardTable({ color }) {
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                   <div className="flex">
                     <Image
-                      src={require('assets/Image/team-1-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                     />
                     <Image
-                      src={require('assets/Image/team-2-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-3-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-4-470x470.png').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
@@ -219,13 +219,13 @@ export default function CardTable({ color }) {
                   </div>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <TableDropdown />
+                  {/* <TableDropdown /> */}
                 </td>
               </tr>
               <tr>
                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                   <Image
-                    src={require('assets/Image/sketch.jpg').default}
+                    src="/vercel.svg" width={40} height={40}
                     className="h-12 w-12 bg-white rounded-full border"
                     alt="..."
                   />
@@ -247,22 +247,22 @@ export default function CardTable({ color }) {
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                   <div className="flex">
                     <Image
-                      src={require('assets/Image/team-1-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                     />
                     <Image
-                      src={require('assets/Image/team-2-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-3-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-4-470x470.png').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
@@ -282,13 +282,13 @@ export default function CardTable({ color }) {
                   </div>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <TableDropdown />
+                  {/* <TableDropdown /> */}
                 </td>
               </tr>
               <tr>
                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                   <Image
-                    src={require('assets/Image/react.jpg').default}
+                    src="/vercel.svg" width={40} height={40}
                     className="h-12 w-12 bg-white rounded-full border"
                     alt="..."
                   />
@@ -311,22 +311,22 @@ export default function CardTable({ color }) {
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                   <div className="flex">
                     <Image
-                      src={require('assets/Image/team-1-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                     />
                     <Image
-                      src={require('assets/Image/team-2-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-3-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-4-470x470.png').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
@@ -346,13 +346,13 @@ export default function CardTable({ color }) {
                   </div>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <TableDropdown />
+                  {/* <TableDropdown /> */}
                 </td>
               </tr>
               <tr>
                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                   <Image
-                    src={require('assets/Image/vue.jpg').default}
+                    src="/vercel.svg" width={40} height={40}
                     className="h-12 w-12 bg-white rounded-full border"
                     alt="..."
                   />
@@ -375,22 +375,22 @@ export default function CardTable({ color }) {
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                   <div className="flex">
                     <Image
-                      src={require('assets/Image/team-1-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
                     />
                     <Image
-                      src={require('assets/Image/team-2-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-3-800x800.jpg').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
                     <Image
-                      src={require('assets/Image/team-4-470x470.png').default}
+                      src="/vercel.svg" width={40} height={40}
                       alt="..."
                       className="w-10 h-10 rounded-full border-2 border-blueGray-50 shadow -ml-4"
                     />
@@ -410,7 +410,7 @@ export default function CardTable({ color }) {
                   </div>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <TableDropdown />
+                  {/* <TableDropdown /> */}
                 </td>
               </tr>
             </tbody>
