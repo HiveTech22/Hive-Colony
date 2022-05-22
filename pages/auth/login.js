@@ -33,7 +33,7 @@ const Login = () => {
         } else {
             setStatus(null);
         }
-    });
+    },[router.query.reset, errors.length]);
 
     const submitForm = async (event) => {
         event.preventDefault();
@@ -158,14 +158,13 @@ const Login = () => {
 
                                             <div className="flex flex-wrap mt-6 relative justify-between items-center">
                                                 <div className="">
-                                                    <a
-                                                        href="/forgot-password"
+                                                    <Link href="/forgot-password" passHref
                                                         className="text-secondary cursor-pointer" 
                                                     >
                                                         <small>
                                                             Forgot password?
                                                         </small>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 <div className=" text-right">
                                                     <Link

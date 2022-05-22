@@ -10,7 +10,7 @@ import { useAuth } from "../../hooks/auth";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Image from 'next/image'
-import { SearchIcon } from "@heroicons/react/solid";
+import { HeartIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/solid";
 
 const Navigation = ({ user }) => {
     const router = useRouter();
@@ -102,68 +102,80 @@ const Navigation = ({ user }) => {
                     {/* Settings Dropdown */}
                     <div className="hidden sm:flex sm:items-center sm:ml-6">
                         {user ? 
-                            <Dropdown
-                            align="right"
-                            width="48"
-                            trigger={
-                                <button className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out">
-                                    <div className="flex items-center px-4">
-                                        <div className="flex-shrink-0">
+                            <div className="flex justify-center items-center gap-6">
+                                <Dropdown
+                                    align="right"
+                                    width="48"
+                                    trigger={
+                                        <button className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none transition duration-150 ease-in-out">
+                                            <div className="flex items-center px-4">
+                                                <div className="flex-shrink-0">
 
-                                            <div className="shrink-0 flex items-center justify-center rounded-full overflow-hidden relative bg-gray-200 w-9 h-9">
-                                                    {user?.image ? (
-                                                        <Image
-                                                            src={orig + '/' + user?.image}
-                                                            alt={user?.name || 'Avatar'}
-                                                            layout="fill"
-                                                        />
-                                                    ) : (
-                                                        <svg
-                                                            className="h-10 w-10 fill-current text-gray-400"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                            stroke="currentColor"
-                                                        >
-                                                            <path
-                                                                strokeLinecap="round"
-                                                                strokeLinejoin="round"
-                                                                strokeWidth="2"
-                                                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                                            />
-                                                        </svg>
-                                                    )}
+                                                    <div className="shrink-0 flex items-center justify-center rounded-full overflow-hidden relative bg-gray-200 w-9 h-9">
+                                                            {user?.image ? (
+                                                                <Image
+                                                                    src={orig + '/' + user?.image}
+                                                                    alt={user?.name || 'Avatar'}
+                                                                    layout="fill"
+                                                                />
+                                                            ) : (
+                                                                <svg
+                                                                    className="h-10 w-10 fill-current text-gray-400"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    fill="none"
+                                                                    viewBox="0 0 24 24"
+                                                                    stroke="currentColor"
+                                                                >
+                                                                    <path
+                                                                        strokeLinecap="round"
+                                                                        strokeLinejoin="round"
+                                                                        strokeWidth="2"
+                                                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                                                    />
+                                                                </svg>
+                                                            )}
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <div className="ml-1">
-                                        <svg
-                                            className="fill-current h-4 w-4"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20"
-                                        >
-                                            <path
-                                                fillRule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clipRule="evenodd"
-                                            />
-                                        </svg>
-                                    </div>
-                                </button>
-                            }
-                        >
-                            {/* Authentication */}
-                            <DropdownLink href="/favourites">
-                                Favourites
-                            </DropdownLink>
-                            <DropdownLink href="/bookings">
-                                Bookings
-                            </DropdownLink>
-                            <DropdownButton onClick={logout}>
-                                Logout
-                            </DropdownButton>
-                        </Dropdown>
+                                            <div className="ml-1">
+                                                <svg
+                                                    className="fill-current h-4 w-4"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20"
+                                                >
+                                                    <path
+                                                        fillRule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clipRule="evenodd"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    }
+                                >
+                                    {/* Authentication */}
+                                    <DropdownLink href="/favourites">
+                                        Favourites
+                                    </DropdownLink>
+                                    <DropdownLink href="/bookings">
+                                        Bookings
+                                    </DropdownLink>
+                                    <DropdownButton onClick={logout}>
+                                        Logout
+                                    </DropdownButton>
+                                </Dropdown>
+
+                                <div className="flex gap-2">
+                                    <Link href="/carts" passHref>
+                                        <ShoppingCartIcon  className="w-4 h-4 text-primary cursor-pointer"/>
+                                    </Link>
+
+                                    <Link href="/favourites" passHref>
+                                        <HeartIcon  className="w-4 h-4 text-red-500 cursor-pointer"/>
+                                    </Link>
+                                </div>
+                            </div>
                          : 
                             <>
                                 <NavLink

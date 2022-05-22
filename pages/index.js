@@ -118,13 +118,13 @@ export default function Home() {
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                                 </p>
                                 <ul className="flex flex-row gap-2 mt-4">
-                                        <a href="https://instagram.com/raydeon" target="_blank">
+                                        <a href="https://instagram.com/raydeon">
                                             <WhatsappIcon className="w-12 h-12 rounded-full"/>
                                         </a>
-                                        <a href="https://www.linkedin.com/in/rairaksa" target="_blank">
+                                        <a href="https://www.linkedin.com/in/rairaksa">
                                             <LinkedinIcon className="w-12 h-12 rounded-full"/>
                                         </a>
-                                        <a href="https://github.com/rairaksa" target="_blank">
+                                        <a href="https://github.com/rairaksa">
                                             <FacebookIcon className="w-12 h-12 rounded-full"/>
                                         </a>
                                 </ul>
@@ -143,13 +143,13 @@ export default function Home() {
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                                 </p>
                                 <ul className="flex flex-row gap-2 mt-4">
-                                        <a href="https://instagram.com/raydeon" target="_blank">
+                                        <a href="https://instagram.com/raydeon">
                                             <WhatsappIcon className="w-12 h-12 rounded-full"/>
                                         </a>
-                                        <a href="https://www.linkedin.com/in/rairaksa" target="_blank">
+                                        <a href="https://www.linkedin.com/in/rairaksa">
                                             <LinkedinIcon className="w-12 h-12 rounded-full"/>
                                         </a>
-                                        <a href="https://github.com/rairaksa" target="_blank">
+                                        <a href="https://github.com/rairaksa">
                                             <FacebookIcon className="w-12 h-12 rounded-full"/>
                                         </a>
                                 </ul>
@@ -168,13 +168,13 @@ export default function Home() {
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                                 </p>
                                 <ul className="flex flex-row gap-2 mt-4">
-                                        <a href="https://instagram.com/raydeon" target="_blank">
+                                        <a href="https://instagram.com/raydeon">
                                             <WhatsappIcon className="w-12 h-12 rounded-full"/>
                                         </a>
-                                        <a href="https://www.linkedin.com/in/rairaksa" target="_blank">
+                                        <a href="https://www.linkedin.com/in/rairaksa">
                                             <LinkedinIcon className="w-12 h-12 rounded-full"/>
                                         </a>
-                                        <a href="https://github.com/rairaksa" target="_blank">
+                                        <a href="https://github.com/rairaksa">
                                             <FacebookIcon className="w-12 h-12 rounded-full"/>
                                         </a>
                                 </ul>

@@ -36,13 +36,11 @@ const ForgotPassword = () => {
                 <div className="container mx-auto px-4 h-screen">
                     <div className="flex content-center items-center justify-center h-full">
                         <div className="w-full lg:w-4/12 px-4">
-                            {/* Session Status */}
                             <AuthSessionStatus
                                 className="mb-4"
                                 status={status}
                             />
 
-                            {/* Validation Errors */}
                             <AuthValidationErrors
                                 className="mb-4"
                                 errors={errors}
@@ -54,7 +52,6 @@ const ForgotPassword = () => {
                                 choose a new one.
                             </div>
                             <form onSubmit={submitForm}>
-                                {/* Email Address */}
                                 <div>
                                     <Label htmlFor="email">Email</Label>
                                     <Input

@@ -146,7 +146,7 @@ const Footer = () => {
 
                     <div className="flex justify-center mb-6">
                         <a
-                            href="#!"
+                            href="#"
                             type="button"
                             className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                             <svg
@@ -165,7 +165,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="#!"
+                            href="#"
                             type="button"
                             className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                             <svg
@@ -184,7 +184,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="#!"
+                            href="#"
                             type="button"
                             className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                             <svg
@@ -203,7 +203,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="#!"
+                            href="#"
                             type="button"
                             className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                             <svg
@@ -222,7 +222,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="#!"
+                            href="#"
                             type="button"
                             className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                             <svg
@@ -241,7 +241,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="#!"
+                            href="#"
                             type="button"
                             className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                             <svg
@@ -261,9 +261,9 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="text-center p-4 bg-secondary">
-                    © 2022 Copyright:{' '}
-                    <Link className="text-white" href="/" passhref>
+                <div className="text-center p-4 bg-gray-900 flex items-center justify-center gap-2">
+                    <p>© 2022 Copyright</p>
+                    <Link className="text-white"href="/" passHref>
                         HiveTech
                     </Link>
                 </div>

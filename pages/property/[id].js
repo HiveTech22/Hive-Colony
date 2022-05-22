@@ -25,6 +25,7 @@ import {
     LinkedinIcon,
   } from 'next-share';
 import ReactStars from 'react-stars'
+import Review from '../../components/Review';
 
 const SingleProperty = ({property}) => {
 
@@ -103,8 +104,7 @@ const SingleProperty = ({property}) => {
                 <section className="text-gray-700 body-font overflow-hidden bg-white">
                     <div className="container px-5 py-2 mx-auto">
                         <div className=" mx-auto flex flex-wrap">
-                            <Image
-                                src={orig + '/' + property.attribute.image}
+                            <Image src={orig + '/' + property.attribute.image}
                                 alt={property.attribute.title}
                                 width="500px"
                                 height="500px"
@@ -113,14 +113,16 @@ const SingleProperty = ({property}) => {
                             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                 <h2 className="text-sm title-font text-gray-500 tracking-widest">PROPERTY NAME</h2>
                                 <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{property.attribute.title}</h1>
+
                                 <div className="flex mb-4">
-                                <span className="flex items-center">
-                                    <ReactStars
-                                    count={5}
-                                    size={24}
-                                    color2={'#ffd700'} />
-                                    <span className="text-gray-600 ml-3">4 Reviews</span>
-                                </span>
+                                    <span className="flex items-center">
+                                        <ReactStars
+                                        count={5}
+                                        size={24}
+                                        color2={'#ffd700'} />
+                                        <span className="text-gray-600 ml-3">4 Reviews</span>
+                                    </span>
+
                                     <div className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
                                         <FacebookShareButton
                                             url={'http://localhost:3000'} 
@@ -154,6 +156,7 @@ const SingleProperty = ({property}) => {
                                         </LinkedinShareButton>
                                     </div>
                                 </div>
+
                                 <p className="leading-relaxed">{property.attribute.description}</p>
                                 
                                 <div className="flex mt-6 items-center justify-start space-x-4 mb-5">
@@ -163,7 +166,7 @@ const SingleProperty = ({property}) => {
                                         <p className="border-2 font-semibold italic rounded-full bg-primary text-white border-secondary p-2">{property.attribute.purpose}</p>
                                 </div>
                             
-                                <div className="flex mt-6 items-center pt-5 border-t-2 border-gray-200 mb-5">
+                                <div className="flex mt-6 items-center pt-5 border-t-2 border-gray-200">
                                     <span className="title-font font-medium text-2xl text-gray-900"><span className="text-xs">NGN</span> {millify(property.attribute.price)}</span>
                                     <button className="button2" onClick={() => bookProperty(property.id)}>
                                             <SaveIcon className="w-6 h-6"/>
@@ -177,8 +180,20 @@ const SingleProperty = ({property}) => {
                                         </svg>
                                     </button>
                                 </div>
-                                
-                                <div className="border-t-2 border-gray italic mt-4 p-4">
+                            </div>
+                        </div>
+
+                        <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-3 space-y-2 mt-8">
+                            <div>
+                                <h5 className="font-bold text-gray-900">Property Reviews</h5>
+                                <div>
+                                    <Review name="Shittu Oluwaseun" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit"/>
+                                    <Review name="Shittu Oluwaseun" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit"/>
+                                    <Review name="Shittu Oluwaseun" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit"/>
+                                </div>
+                            </div>
+
+                            <div className="">
                                     <h5 className="font-bold text-primary">Advance Features</h5>
                                     <div className="grid lg:grid-cols-3 md:grid-cols-2 m-auto p-2 space-y-2">
                                         
@@ -211,46 +226,6 @@ const SingleProperty = ({property}) => {
                                             {property.attribute.wifi === true? <CheckCircleIcon className="w-4 h-4 text-green-500"/>   : <Icon icon={timesCircleLine} className="text-red-500"/>}
                                         </p>
                                     </div>
-                                    {/* <div className="flex mt-4">
-                                        <div className="flex-1">
-                                            <h5>Advance Features</h5>
-                                            <div className="flex border-gray border-b-2 border-gray-200 mb-5 justify-center items-center">
-                                                <div className="flex-1">
-                                                    <div className="flex justify-start items-center space-x-2">
-                                                        <div className="flex">
-                                                            <SparklesIcon className="w-6 h-6 text-primary"/>
-
-                                                            {property.attribute.bedroom} Bedroom
-                                                        </div>
-                                                        <div className="flex">
-                                                            <SparklesIcon className="w-6 h-6 text-primary"/>
-                                                            {property.attribute.bathroom} Bathroom
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <div>
-                                                <button className="button2 mb-1 space-x-2">
-                                                    <SaveIcon className="w-6 h-6"/>
-                                                    Book Property
-                                                </button>
-                                            </div>
-                                            
-                                        </div>
-                                            <div></div>
-                                        </div>
-                                        <div className="">
-                                            <div className="flex space-x-4 justify-between items-center">
-                                                <div className="mt-2 ">
-                                                    <div className="flex space-x-8 border-2 border-secondary p-4">
-                                                        <div className="">Check In</div>
-                                                        <div className="">Check Out</div>
-                                                    </div>
-                                                    <Button>Book Property</Button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> */}
-                        </div>
                             </div>
                         </div>
                     </div>

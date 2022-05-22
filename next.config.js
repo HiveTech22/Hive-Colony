@@ -1,14 +1,18 @@
-/** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   reactStrictMode: true,
-// }
+const withPWA = require('next-pwa')
 
-module.exports = {
+module.exports = withPWA({
+    reactStrictMode: true,
+    pwa: {
+        dest: 'public',
+        register: true,
+        skipWaiting: true,
+        disable: process.env.NODE_ENV === 'development'
+      },
     images: {
-        domains: ['localhost'],
+        domains: ['localhost','picsum.photos', 'demo.themesberg.com'],
     },
     env: {
         MAPBOXGL_KEY:
             'pk.eyJ1IjoibWlkc2hvdDE3IiwiYSI6ImNsMzhvb21hOTAwNmkzZHFmaTR2ZXd4cmYifQ.PGTwJpHpA3xAeF6oZ_iZ0Q',
-    },
-}
+    }
+})

@@ -5,7 +5,7 @@ export default function Loader() {
         <div className="h-screen flex justify-center items-center relative top-0">
             <div className=" flex flex-col justify-center items-center absolute">
                 <Image
-                    src="/colony.svg"
+                    src="/loading.svg"
                     width="200px"
                     height="200px"
                     alt="Colony"
