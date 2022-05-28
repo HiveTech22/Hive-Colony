@@ -22,6 +22,7 @@
     "next": "12.1.0",
     "next-pwa": "^5.5.2",
     "next-share": "^0.13.0",
+    "qrcode-next": "^1.4.5",
     "react": "17.0.2",
     "react-date-range": "^1.4.0",
     "react-dom": "17.0.2",
