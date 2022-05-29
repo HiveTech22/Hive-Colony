@@ -180,11 +180,7 @@ const SingleProperty = ({ property }) => {
 
                                 <div className="flex mb-4">
                                     <span className="flex items-center">
-                                        <ReactStars
-                                            count={5}
-                                            size={24}
-                                            color2={'#ffd700'}
-                                        />
+                                        
                                         <span className="text-gray-600 ml-3">
                                             4 Reviews
                                         </span>
@@ -234,22 +230,24 @@ const SingleProperty = ({ property }) => {
                                 </p>
 
                                 <div className="flex mt-6 items-center justify-start space-x-4 mb-5">
-                                    <p>
-                                        <bold className="font-bold font-sans text-secondary">
-                                            Bedroom
-                                        </bold>
-                                        : {property.attribute.bedroom}
-                                    </p>
-                                    <p>
-                                        <bold className="font-bold font-sans text-secondary">
-                                            Bathroom
-                                        </bold>
-                                        : {property.attribute.bathroom}
-                                    </p>
-                                    <p className="border-2 font-semibold italic rounded-full bg-primary text-white border-secondary p-2">
+                                    <div className='flex justify-between text-center gap-2'>
+                                        <p>
+                                            <bold className="font-semibold italic text-primary text-xs">
+                                                Bedroom
+                                            </bold>
+                                            : {property.attribute.bedroom}
+                                        </p>
+                                        <p>
+                                            <bold className="font-semibold italic text-primary text-xs">
+                                                Bathroom
+                                            </bold>
+                                            : {property.attribute.bathroom}
+                                        </p>
+                                    </div>
+                                    <p className="font-semibold italic text-primary text-xs">
                                         {property.attribute.frequency}
                                     </p>
-                                    <p className="border-2 font-semibold italic rounded-full bg-primary text-white border-secondary p-2">
+                                    <p className="font-semibold italic text-primary text-xs">
                                         {property.attribute.purpose}
                                     </p>
                                 </div>
@@ -473,7 +471,7 @@ const SingleProperty = ({ property }) => {
                                             id="message"
                                             type="text"
                                             value={ratingMessage}
-                                            placeholder="How do you feel about this product?"
+                                            placeholder="How do you feel about this property?"
                                             onChange={event =>
                                                 setRatingMessage(
                                                     event.target.value,
