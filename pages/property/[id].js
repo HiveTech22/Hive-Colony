@@ -128,21 +128,14 @@ const SingleProperty = ({ property }) => {
                 property_id: id,
             })
             .then(({ data }) => {
+                if (data.status === 'success') {
+                }
                 Swal.fire({
                     icon: 'success',
-                    text: response.data.message,
+                    text: 'Booking successful',
                 })
-                navigate('/')
-            })
-            .catch(({ response }) => {
-                if (response.status === 422) {
-                    setValidationError(response.data.errors)
-                } else {
-                    Swal.fire({
-                        text: response.data.message,
-                        icon: 'error',
-                    })
-                }
+                setTimeout(window.location.pathname = '/bookings',10000)
+                
             })
     }
 
