@@ -162,14 +162,41 @@ const SingleProperty = ({ property }) => {
             <GuestLayout>
                 <section className="text-gray-700 body-font overflow-hidden bg-white">
                     <div className="container px-5 py-2 mx-auto">
-                        <div className=" mx-auto flex flex-wrap">
-                            <Image
-                                src={orig + '/' + property.attribute.image}
-                                alt={property.attribute.title}
-                                width="500px"
-                                height="500px"
-                                className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-                            />
+                        <div className="mx-auto flex flex-wrap">
+                            <div>
+                                <div>
+                                    <Image
+                                        src={orig + '/' + property.attribute.image}
+                                        alt={property.attribute.title}
+                                        width="500px"
+                                        height="350px"
+                                        className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
+                                    />
+                                    <div className='grid grid-cols-3 gap-1'>
+                                        <Image
+                                            src={orig + '/' + property.attribute.image}
+                                            alt={property.attribute.title}
+                                            width="100px"
+                                            height="100px"
+                                            className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
+                                        />
+                                        <Image
+                                            src={orig + '/' + property.attribute.image2}
+                                            alt={property.attribute.title}
+                                            width="100px"
+                                            height="100px"
+                                            className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
+                                        />
+                                        <Image
+                                            src={orig + '/' + property.attribute.image3}
+                                            alt={property.attribute.title}
+                                            width="100px"
+                                            height="100px"
+                                            className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                 <h2 className="text-sm title-font text-gray-500 tracking-widest">
                                     PROPERTY NAME
