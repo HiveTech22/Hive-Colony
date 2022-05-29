@@ -35,6 +35,7 @@ import Button from '../../components/Buttons/Button'
 import Input from '../../components/Form/Input'
 import toast from 'react-hot-toast'
 import AuthValidationErrors from '../../components/AuthValidationErrors'
+import Loader from '../../components/Loader'
 
 const SingleProperty = ({ property }) => {
     const orig = 'http://localhost:8000/storage'
@@ -44,6 +45,7 @@ const SingleProperty = ({ property }) => {
     const [errors, setErrors] = useState([])
     const [showReview, setShowReview] = useState(false)
     const [showAdvanceFeature, setShowAdvanceFeature] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const { user } = useAuth({ middleware: 'auth' })
 
@@ -107,6 +109,9 @@ const SingleProperty = ({ property }) => {
     }
 
     const bookProperty = async id => {
+
+        setLoading(true)
+
         const isConfirm = await Swal.fire({
             title: 'Hello, please confirm!',
             text: 'Are you sure you want to book this property?',
@@ -128,17 +133,21 @@ const SingleProperty = ({ property }) => {
                 property_id: id,
             })
             .then((response ) => {
-                Swal.fire({
-                    icon: 'success',
-                    text: 'You have successfully booked this property!',
-                })
-                setTimeout(window.location.href = '/bookings',10000)
+                if(response.data.status === 'success'){
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'You have successfully booked this property!',
+                    })
+                    setTimeout(window.location.href = '/bookings',40000)
+                }
+                setLoading(false)
             })
             .catch(( error ) => {
                 Swal.fire({
                     text: error.response.data.error,
                     icon: 'error',
                 })
+                setLoading(false)
             })
     }
 
@@ -255,8 +264,20 @@ const SingleProperty = ({ property }) => {
                                         onClick={() =>
                                             bookProperty(property.id)
                                         }>
-                                        <SaveIcon className="w-6 h-6" />
-                                        Book Property
+                                        
+                                        {
+                                            loading ? 
+                                            <div div className='flex justify-center items-center gap-2'>
+                                                <Image src="/bs.svg" alt='submitting...' width={25} height={25}/>
+                                                Submitting...
+                                            </div>
+                                            : 
+                                            <>
+                                                <SaveIcon className="w-6 h-6" />
+                                                Book Property
+                                            </>
+                                        }
+                                        
                                     </button>
                                     <button
                                         className={`favourite ${
