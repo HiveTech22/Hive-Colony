@@ -108,7 +108,7 @@ const SingleProperty = ({ property }) => {
 
     const bookProperty = async id => {
         const isConfirm = await Swal.fire({
-            title: 'Hello, dear user!',
+            title: 'Hello, please confirm!',
             text: 'Are you sure you want to book this property?',
             icon: 'info',
             showCancelButton: true,
@@ -127,15 +127,18 @@ const SingleProperty = ({ property }) => {
             .post(`/api/v1/bookings`, {
                 property_id: id,
             })
-            .then(({ data }) => {
-                if (data.status === 'success') {
-                }
+            .then((response ) => {
                 Swal.fire({
                     icon: 'success',
-                    text: 'Booking successful',
+                    text: 'You have successfully booked this property!',
                 })
-                setTimeout(window.location.pathname = '/bookings',10000)
-                
+                setTimeout(window.location.href = '/bookings',10000)
+            })
+            .catch(( error ) => {
+                Swal.fire({
+                    text: error.response.data.error,
+                    icon: 'error',
+                })
             })
     }
 
