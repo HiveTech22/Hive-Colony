@@ -29,21 +29,21 @@ const SearchComponent = () => {
         router.push({ pathname: path, query: query })
     }
 
-    useEffect(() => {
-        if (searchTerm !== '') {
-            const fetchData = async () => {
-                setLoading(true)
-                const data = await axios.get(
-                    `/api/v1/properties?search=${searchTerm}`,
-                )
-                console.log(data.data)
-                setLoading(false)
-                setLocationData(data.data?.hits)
-            }
+    // useEffect(() => {
+    //     if (searchTerm !== '') {
+    //         const fetchData = async () => {
+    //             setLoading(true)
+    //             const data = await axios.get(
+    //                 `/api/v1/properties?search=${searchTerm}`,
+    //             )
+    //             console.log(data.data)
+    //             setLoading(false)
+    //             setLocationData(data.data?.hits)
+    //         }
 
-            fetchData()
-        }
-    }, [searchTerm])
+    //         fetchData()
+    //     }
+    // }, [searchTerm])
     return (
         <>
             <div className="p-2 bg-gray-100">

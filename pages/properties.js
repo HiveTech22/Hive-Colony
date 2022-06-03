@@ -64,14 +64,14 @@ const Properties = ({ properties }) => {
 export default Properties
 
 export async function getServerSideProps({ query }) {
-    const page = query.per_page || 1
+    const page = query.per_page || 5
     const purpose = query.purpose || 'for-rent'
     const frequency = query.frequency || 'yearly'
     const sort = query.sort || 'desc'
     const bathroom = query.bathroom || '0'
     const bedroom = query.bedroom || '0'
-    const minPrice = query.minPrice || '0'
-    const maxPrice = query.maxPrice || '30000'
+    const minPrice = query.minPrice || 0
+    const maxPrice = query.maxPrice || 100000
 
     const response = await axios.get(
         `/api/v1/properties?purpose=${purpose}&frequency=${frequency}&sort=${sort}&bathroom=${bathroom}&bedroom=${bedroom}&minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}`,

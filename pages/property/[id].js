@@ -71,10 +71,6 @@ const SingleProperty = ({ property }) => {
         setShowReview((showReview = !showReview))
     }
 
-    const showAdvanceFeatures = () => {
-        setShowAdvanceFeature((showAdvanceFeature = !showAdvanceFeature))
-    }
-
     const ratingChanged = newRating => {
         setRatingRate(newRating)
     }
@@ -350,18 +346,12 @@ const SingleProperty = ({ property }) => {
                         </div>
 
                         <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-3  mt-8">
-                            <div className="">
+                            <div>
+                                <h5 className="font-bold text-lg italics">
+                                    {property.relationships.reviews.length}{' '}
+                                    Reviews
+                                </h5>
                                 <div className="flex justify-center items-center gap-8">
-                                    <Button onClick={showAdvanceFeatures}>
-                                        <Icon icon="bi:file-arrow-down-fill" />{' '}
-                                        {''}
-                                        {showAdvanceFeature === true
-                                            ? 'Hide'
-                                            : 'Show'}{' '}
-                                        {''}
-                                        Advance Features
-                                    </Button>
-
                                     <Button onClick={showReviews}>
                                         <Icon icon="bi:file-arrow-down-fill" />{' '}
                                         {''}
@@ -372,170 +362,175 @@ const SingleProperty = ({ property }) => {
                                         Reviews
                                     </Button>
                                 </div>
-
-                                <div>
-                                    {showAdvanceFeature && (
-                                        <div className="grid lg:grid-cols-3 md:grid-cols-2 m-auto p-2 space-y-2">
-                                            <p className="flex items-center space-x-2">
-                                                <bold className="font-bold font-sans text-secondary">
-                                                    Fenced
-                                                </bold>
-                                                :
-                                                {property.attribute.fence ===
-                                                true ? (
-                                                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                                                ) : (
-                                                    <Icon
-                                                        icon={timesCircleLine}
-                                                        className="text-red-500"
-                                                    />
-                                                )}
-                                            </p>
-                                            <p className="flex items-center space-x-2">
-                                                <bold className="font-bold font-sans text-secondary">
-                                                    Swiming Pool
-                                                </bold>
-                                                :
-                                                {property.attribute.pool ===
-                                                true ? (
-                                                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                                                ) : (
-                                                    <Icon
-                                                        icon={timesCircleLine}
-                                                        className="text-red-500"
-                                                    />
-                                                )}
-                                            </p>
-                                            <p className="flex items-center space-x-2">
-                                                <bold className="font-bold font-sans text-secondary">
-                                                    Air Conditioning
-                                                </bold>
-                                                :
-                                                {property.attribute
-                                                    .conditioning === true ? (
-                                                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                                                ) : (
-                                                    <Icon
-                                                        icon={timesCircleLine}
-                                                        className="text-red-500"
-                                                    />
-                                                )}
-                                            </p>
-                                            <p className="flex items-center space-x-2">
-                                                <bold className="font-bold font-sans text-secondary">
-                                                    Laundry Room:{' '}
-                                                </bold>
-                                                {property.attribute.laundry ===
-                                                true ? (
-                                                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                                                ) : (
-                                                    <Icon
-                                                        icon={timesCircleLine}
-                                                        className="text-red-500"
-                                                    />
-                                                )}
-                                            </p>
-                                            <p className="flex items-center space-x-2">
-                                                <bold className="font-bold font-sans text-secondary">
-                                                    Furnished:{' '}
-                                                </bold>
-                                                {property.attribute.furnish ===
-                                                true ? (
-                                                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                                                ) : (
-                                                    <Icon
-                                                        icon={timesCircleLine}
-                                                        className="text-red-500"
-                                                    />
-                                                )}
-                                            </p>
-                                            <p className="flex items-center space-x-2">
-                                                <bold className="font-bold font-sans text-secondary">
-                                                    Car Park:{' '}
-                                                </bold>
-                                                {property.attribute.park ===
-                                                true ? (
-                                                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                                                ) : (
-                                                    <Icon
-                                                        icon={timesCircleLine}
-                                                        className="text-red-500"
-                                                    />
-                                                )}
-                                            </p>
-                                            <p className="flex items-center space-x-2">
-                                                <bold className="font-bold font-sans text-secondary">
-                                                    Wifi:{' '}
-                                                </bold>
-                                                {property.attribute.wifi ===
-                                                true ? (
-                                                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                                                ) : (
-                                                    <Icon
-                                                        icon={timesCircleLine}
-                                                        className="text-red-500"
-                                                    />
-                                                )}
-                                            </p>
-                                        </div>
-                                    )}
-                                </div>
-
-                                <div>
-                                    {showReview && (
-                                        <div>
-                                            <Review
-                                                name="Shittu Oluwaseun"
-                                                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-                                            />
-                                            <Review
-                                                name="Shittu Oluwaseun"
-                                                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-                                            />
-                                            <Review
-                                                name="Shittu Oluwaseun"
-                                                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-                                            />
-                                        </div>
-                                    )}
-                                </div>
+                                {showReview && (
+                                    <div>
+                                        {property.relationships.reviews.map(
+                                            review => (
+                                                <Review
+                                                    key={review.id}
+                                                    name={
+                                                        review.relationships
+                                                            .author.name
+                                                    }
+                                                    image={
+                                                        review.relationships
+                                                            .author.image
+                                                    }
+                                                    rating={review.rating}
+                                                    created={review.created}
+                                                    description={review.message}
+                                                />
+                                            ),
+                                        )}
+                                    </div>
+                                )}
                             </div>
 
-                            <div className="border-2 border-secondary p-4 rounded-xl">
-                                <form onSubmit={submitRating}>
-                                    <h5 className="font-bold text-primary mb-2  text-center">
-                                        Leave a review on this property
-                                    </h5>
+                            <div>
+                                <div>
+                                    <div className="grid lg:grid-cols-3 md:grid-cols-2 m-auto p-2">
+                                        <p className="flex items-center space-x-2">
+                                            <bold className="font-bold font-sans text-secondary">
+                                                Fenced
+                                            </bold>
+                                            :
+                                            {property.attribute.fence ===
+                                            true ? (
+                                                <CheckCircleIcon className="w-4 h-4 text-green-500" />
+                                            ) : (
+                                                <Icon
+                                                    icon={timesCircleLine}
+                                                    className="text-red-500"
+                                                />
+                                            )}
+                                        </p>
+                                        <p className="flex items-center space-x-2">
+                                            <bold className="font-bold font-sans text-secondary">
+                                                Swiming Pool
+                                            </bold>
+                                            :
+                                            {property.attribute.pool ===
+                                            true ? (
+                                                <CheckCircleIcon className="w-4 h-4 text-green-500" />
+                                            ) : (
+                                                <Icon
+                                                    icon={timesCircleLine}
+                                                    className="text-red-500"
+                                                />
+                                            )}
+                                        </p>
+                                        <p className="flex items-center space-x-2">
+                                            <bold className="font-bold font-sans text-secondary">
+                                                Air Conditioning
+                                            </bold>
+                                            :
+                                            {property.attribute.conditioning ===
+                                            true ? (
+                                                <CheckCircleIcon className="w-4 h-4 text-green-500" />
+                                            ) : (
+                                                <Icon
+                                                    icon={timesCircleLine}
+                                                    className="text-red-500"
+                                                />
+                                            )}
+                                        </p>
+                                        <p className="flex items-center space-x-2">
+                                            <bold className="font-bold font-sans text-secondary">
+                                                Laundry Room:{' '}
+                                            </bold>
+                                            {property.attribute.laundry ===
+                                            true ? (
+                                                <CheckCircleIcon className="w-4 h-4 text-green-500" />
+                                            ) : (
+                                                <Icon
+                                                    icon={timesCircleLine}
+                                                    className="text-red-500"
+                                                />
+                                            )}
+                                        </p>
+                                        <p className="flex items-center space-x-2">
+                                            <bold className="font-bold font-sans text-secondary">
+                                                Furnished:{' '}
+                                            </bold>
+                                            {property.attribute.furnish ===
+                                            true ? (
+                                                <CheckCircleIcon className="w-4 h-4 text-green-500" />
+                                            ) : (
+                                                <Icon
+                                                    icon={timesCircleLine}
+                                                    className="text-red-500"
+                                                />
+                                            )}
+                                        </p>
+                                        <p className="flex items-center space-x-2">
+                                            <bold className="font-bold font-sans text-secondary">
+                                                Car Park:{' '}
+                                            </bold>
+                                            {property.attribute.park ===
+                                            true ? (
+                                                <CheckCircleIcon className="w-4 h-4 text-green-500" />
+                                            ) : (
+                                                <Icon
+                                                    icon={timesCircleLine}
+                                                    className="text-red-500"
+                                                />
+                                            )}
+                                        </p>
+                                        <p className="flex items-center space-x-2">
+                                            <bold className="font-bold font-sans text-secondary">
+                                                Wifi:{' '}
+                                            </bold>
+                                            {property.attribute.wifi ===
+                                            true ? (
+                                                <CheckCircleIcon className="w-4 h-4 text-green-500" />
+                                            ) : (
+                                                <Icon
+                                                    icon={timesCircleLine}
+                                                    className="text-red-500"
+                                                />
+                                            )}
+                                        </p>
+                                    </div>
+                                </div>
 
-                                    <AuthValidationErrors
-                                        className="mb-2"
-                                        errors={errors}
-                                    />
+                                <div className="border-2 border-secondary p-4 rounded-xl mt-2">
+                                    <form onSubmit={submitRating}>
+                                        <h5 className="font-bold text-primary mb-2  text-center">
+                                            Leave a review on this property
+                                        </h5>
 
-                                    <div className="flex items-center justify-center">
-                                        <ReactStars
-                                            count={5}
-                                            size={24}
-                                            color2={'#ffd700'}
-                                            onChange={ratingChanged}
+                                        <AuthValidationErrors
+                                            className="mb-2"
+                                            errors={errors}
                                         />
-                                    </div>
 
-                                    <Input
-                                        id="message"
-                                        type="text"
-                                        value={ratingMessage}
-                                        placeholder="How do you feel about this property?"
-                                        onChange={event =>
-                                            setRatingMessage(event.target.value)
-                                        }
-                                        required
-                                    />
+                                        <div className="flex items-center justify-center">
+                                            <ReactStars
+                                                count={5}
+                                                size={24}
+                                                color2={'#ffd700'}
+                                                onChange={ratingChanged}
+                                            />
+                                        </div>
 
-                                    <div className="mt-2 text-center">
-                                        <Button>Submit Review</Button>
-                                    </div>
-                                </form>
+                                        <Input
+                                            id="message"
+                                            type="text"
+                                            value={ratingMessage}
+                                            placeholder="How do you feel about this property?"
+                                            onChange={event =>
+                                                setRatingMessage(
+                                                    event.target.value,
+                                                )
+                                            }
+                                            required
+                                        />
+
+                                        <div className="mt-2 text-center">
+                                            <Button>Submit Review</Button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
