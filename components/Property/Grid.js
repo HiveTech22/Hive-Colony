@@ -8,9 +8,11 @@ const Grid = ({ properties }) => {
     }
 
     return isEmpty ? (
-        <p className="text-amber-700 bg-amber-100 px-4 rounded-md py-2 max-w-max inline-flex items-center space-x-1">
-            <span>Unfortunately, there is nothing to display yet.</span>
-        </p>
+        <div className="flex justify-center items-center mt-6">
+            <p className="text-amber-700 bg-amber-100 px-4 rounded-md py-2 max-w-max inline-flex items-center space-x-1">
+                <span>Unfortunately, there is nothing to display yet.</span>
+            </p>
+        </div>
     ) : (
         <div className="">
             {properties.map(property => (

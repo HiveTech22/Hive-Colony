@@ -14,6 +14,7 @@ import {
 } from '@heroicons/react/solid'
 import { Icon } from '@iconify/react'
 import timesCircleLine from '@iconify/icons-clarity/times-circle-line'
+
 import { useState } from 'react'
 import Swal from 'sweetalert2'
 import {
@@ -36,15 +37,18 @@ import Input from '../../components/Form/Input'
 import toast from 'react-hot-toast'
 import AuthValidationErrors from '../../components/AuthValidationErrors'
 import Loader from '../../components/Loader'
+import { useStore } from '../../client/context'
 
 const SingleProperty = ({ property }) => {
+    const [state, dispatch] = useStore()
+    console.log(state)
     const orig = 'http://localhost:8000/storage'
     const favorite = false
     const [ratingRate, setRatingRate] = useState('')
     const [ratingMessage, setRatingMessage] = useState('')
     const [errors, setErrors] = useState([])
     const [showReview, setShowReview] = useState(false)
-    const [showAdvanceFeature, setShowAdvanceFeature] = useState(false)
+    const [showAdvanceFeature, setShowAdvanceFeature] = useState(true)
     const [loading, setLoading] = useState(false)
 
     const { user } = useAuth({ middleware: 'auth' })
@@ -109,7 +113,6 @@ const SingleProperty = ({ property }) => {
     }
 
     const bookProperty = async id => {
-
         setLoading(true)
 
         const isConfirm = await Swal.fire({
@@ -132,17 +135,17 @@ const SingleProperty = ({ property }) => {
             .post(`/api/v1/bookings`, {
                 property_id: id,
             })
-            .then((response ) => {
-                if(response.data.status === 'success'){
+            .then(response => {
+                if (response.data.status === 'success') {
                     Swal.fire({
                         icon: 'success',
                         text: 'You have successfully booked this property!',
                     })
-                    setTimeout(window.location.href = '/bookings',40000)
+                    setTimeout((window.location.href = '/bookings'), 40000)
                 }
                 setLoading(false)
             })
-            .catch(( error ) => {
+            .catch(error => {
                 Swal.fire({
                     text: error.response.data.error,
                     icon: 'error',
@@ -166,29 +169,45 @@ const SingleProperty = ({ property }) => {
                             <div>
                                 <div>
                                     <Image
-                                        src={orig + '/' + property.attribute.image}
+                                        src={
+                                            orig +
+                                            '/' +
+                                            property.attribute.image
+                                        }
                                         alt={property.attribute.title}
                                         width="500px"
                                         height="350px"
                                         className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
                                     />
-                                    <div className='grid grid-cols-3 gap-1'>
+                                    <div className="grid grid-cols-3 gap-1">
                                         <Image
-                                            src={orig + '/' + property.attribute.image}
+                                            src={
+                                                orig +
+                                                '/' +
+                                                property.attribute.image
+                                            }
                                             alt={property.attribute.title}
                                             width="100px"
                                             height="100px"
                                             className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
                                         />
                                         <Image
-                                            src={orig + '/' + property.attribute.image2}
+                                            src={
+                                                orig +
+                                                '/' +
+                                                property.attribute.image2
+                                            }
                                             alt={property.attribute.title}
                                             width="100px"
                                             height="100px"
                                             className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
                                         />
                                         <Image
-                                            src={orig + '/' + property.attribute.image3}
+                                            src={
+                                                orig +
+                                                '/' +
+                                                property.attribute.image3
+                                            }
                                             alt={property.attribute.title}
                                             width="100px"
                                             height="100px"
@@ -207,7 +226,6 @@ const SingleProperty = ({ property }) => {
 
                                 <div className="flex mb-4">
                                     <span className="flex items-center">
-                                        
                                         <span className="text-gray-600 ml-3">
                                             4 Reviews
                                         </span>
@@ -257,7 +275,7 @@ const SingleProperty = ({ property }) => {
                                 </p>
 
                                 <div className="flex mt-6 items-center justify-start space-x-4 mb-5">
-                                    <div className='flex justify-between text-center gap-2'>
+                                    <div className="flex justify-between text-center gap-2">
                                         <p>
                                             <bold className="font-semibold italic text-primary text-xs">
                                                 Bedroom
@@ -280,7 +298,7 @@ const SingleProperty = ({ property }) => {
                                 </div>
 
                                 <div className="flex mt-6 items-center pt-5 border-t-2 border-gray-200">
-                                    <span className="title-font font-medium text-2xl text-gray-900">
+                                    <span className="title-font font-semibold text-xl text-gray-900">
                                         <span className="text-xs">NGN</span>{' '}
                                         {millify(property.attribute.price)}
                                     </span>
@@ -289,20 +307,24 @@ const SingleProperty = ({ property }) => {
                                         onClick={() =>
                                             bookProperty(property.id)
                                         }>
-                                        
-                                        {
-                                            loading ? 
-                                            <div div className='flex justify-center items-center gap-2'>
-                                                <Image src="/bs.svg" alt='submitting...' width={25} height={25}/>
+                                        {loading ? (
+                                            <div
+                                                div
+                                                className="flex justify-center items-center gap-2">
+                                                <Image
+                                                    src="/bs.svg"
+                                                    alt="submitting..."
+                                                    width={25}
+                                                    height={25}
+                                                />
                                                 Submitting...
                                             </div>
-                                            : 
+                                        ) : (
                                             <>
                                                 <SaveIcon className="w-6 h-6" />
                                                 Book Property
                                             </>
-                                        }
-                                        
+                                        )}
                                     </button>
                                     <button
                                         className={`favourite ${
@@ -331,6 +353,8 @@ const SingleProperty = ({ property }) => {
                             <div className="">
                                 <div className="flex justify-center items-center gap-8">
                                     <Button onClick={showAdvanceFeatures}>
+                                        <Icon icon="bi:file-arrow-down-fill" />{' '}
+                                        {''}
                                         {showAdvanceFeature === true
                                             ? 'Hide'
                                             : 'Show'}{' '}
@@ -339,7 +363,11 @@ const SingleProperty = ({ property }) => {
                                     </Button>
 
                                     <Button onClick={showReviews}>
-                                        {showReview === true ? 'Hide' : 'Show'}{' '}
+                                        <Icon icon="bi:file-arrow-down-fill" />{' '}
+                                        {''}
+                                        {showReview === true
+                                            ? 'Hide'
+                                            : 'Show'}{' '}
                                         {''}
                                         Reviews
                                     </Button>
@@ -473,45 +501,41 @@ const SingleProperty = ({ property }) => {
                                 </div>
                             </div>
 
-                            <div className="">
-                                <div className="mt-6 border-2 border-secondary p-4 rounded-xl">
-                                    <form onSubmit={submitRating}>
-                                        <h5 className="font-bold text-primary mb-2  text-center">
-                                            Leave a review on this property
-                                        </h5>
+                            <div className="border-2 border-secondary p-4 rounded-xl">
+                                <form onSubmit={submitRating}>
+                                    <h5 className="font-bold text-primary mb-2  text-center">
+                                        Leave a review on this property
+                                    </h5>
 
-                                        <AuthValidationErrors
-                                            className="mb-2"
-                                            errors={errors}
+                                    <AuthValidationErrors
+                                        className="mb-2"
+                                        errors={errors}
+                                    />
+
+                                    <div className="flex items-center justify-center">
+                                        <ReactStars
+                                            count={5}
+                                            size={24}
+                                            color2={'#ffd700'}
+                                            onChange={ratingChanged}
                                         />
+                                    </div>
 
-                                        <div className="flex items-center justify-center">
-                                            <ReactStars
-                                                count={5}
-                                                size={24}
-                                                color2={'#ffd700'}
-                                                onChange={ratingChanged}
-                                            />
-                                        </div>
+                                    <Input
+                                        id="message"
+                                        type="text"
+                                        value={ratingMessage}
+                                        placeholder="How do you feel about this property?"
+                                        onChange={event =>
+                                            setRatingMessage(event.target.value)
+                                        }
+                                        required
+                                    />
 
-                                        <Input
-                                            id="message"
-                                            type="text"
-                                            value={ratingMessage}
-                                            placeholder="How do you feel about this property?"
-                                            onChange={event =>
-                                                setRatingMessage(
-                                                    event.target.value,
-                                                )
-                                            }
-                                            required
-                                        />
-
-                                        <div className="mt-2">
-                                            <Button>Submit Review</Button>
-                                        </div>
-                                    </form>
-                                </div>
+                                    <div className="mt-2 text-center">
+                                        <Button>Submit Review</Button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

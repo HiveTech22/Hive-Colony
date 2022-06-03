@@ -4,6 +4,7 @@ import { Router } from 'next/router'
 import { Toaster } from 'react-hot-toast'
 import { useState } from 'react'
 import Loader from '../components/Loader'
+import { StoreProvider } from '../client/context'
 
 const progress = new ProgressBar({
     size: 4,
@@ -26,9 +27,11 @@ function MyApp({ Component, pageProps }) {
     })
     return (
         <>
-            {loading && <Loader />}
-            <Component {...pageProps} />
-            <Toaster />
+            <StoreProvider>
+                {loading && <Loader />}
+                <Component {...pageProps} />
+                <Toaster />
+            </StoreProvider>
         </>
     )
 }
